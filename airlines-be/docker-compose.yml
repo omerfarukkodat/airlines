@@ -1,0 +1,25 @@
+services:
+  postgres:
+    container_name: postgres-airlines
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2334
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: airlines
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - 5434:5432
+    networks:
+      - airlines
+    restart: unless-stopped
+
+
+volumes:
+  postgres:
+    driver: local
+  es-data:
+networks:
+  airlines:
+    driver: bridge
