@@ -32,7 +32,8 @@ public class FlightServiceImpl implements FlightService {
 
 
     @Override
-    public FlightDto add(FlightDto flightDto) {
+    public FlightDto add(FlightDto flightDto,Authentication connectedUser) {
+        checkUser(connectedUser);
         isAvailableFlight(flightDto);
 
         Flight flight = FlightMapper.toFlight(flightDto);
@@ -41,7 +42,8 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public List<FlightDto> getAll() {
+    public List<FlightDto> getAll(Authentication connectedUser) {
+        checkUser(connectedUser);
         List<Flight> flights = flightRepository.findAll();
         return flights.stream()
                 .map(FlightMapper::toFlightDto)

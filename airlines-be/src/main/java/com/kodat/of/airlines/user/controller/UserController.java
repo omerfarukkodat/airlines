@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -26,11 +27,23 @@ public class UserController {
 
     }
 
-
-
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@Valid @RequestBody LoginDto loginDto) {
 
         return ResponseEntity.ok(userService.login(loginDto));
     }
+
+    @GetMapping("/admin/check")
+    @Secured("ADMIN")
+    public ResponseEntity<Void> checkAdmin() {
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/user/check")
+    @Secured("USER")
+    public ResponseEntity<Void> checkUser() {
+        return ResponseEntity.ok().build();
+    }
+
+
 }

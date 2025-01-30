@@ -1,11 +1,7 @@
 package com.kodat.of.airlines.handler;
 
 
-import com.kodat.of.airlines.exception.ConflictFlightException;
-import com.kodat.of.airlines.exception.FlightNotFoundException;
-import com.kodat.of.airlines.exception.UnauthorizedUserAccessException;
-import com.kodat.of.airlines.exception.UserNotFoundException;
-import com.kodat.of.airlines.user.service.exception.UserAlreadyExistsException;
+import com.kodat.of.airlines.exception.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -25,15 +25,15 @@ public class FlightController {
 
     @PostMapping
     @Secured("ADMIN")
-    public ResponseEntity<FlightDto> add(@RequestBody @Valid FlightDto flightDto) {
+    public ResponseEntity<FlightDto> add(@RequestBody @Valid FlightDto flightDto , Authentication connectedUser) {
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(flightService.add(flightDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(flightService.add(flightDto,connectedUser));
     }
 
     @GetMapping
     @Secured("ADMIN")
-    public ResponseEntity<List<FlightDto>> getAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(flightService.getAll());
+    public ResponseEntity<List<FlightDto>> getAll(Authentication connectedUser) {
+        return ResponseEntity.status(HttpStatus.OK).body(flightService.getAll(connectedUser));
     }
 
     @GetMapping("/findByCity")

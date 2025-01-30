@@ -1,5 +1,6 @@
 package com.kodat.of.airlines.user.service.impl;
 
+import com.kodat.of.airlines.exception.UserAlreadyExistsException;
 import com.kodat.of.airlines.exception.UserNotFoundException;
 import com.kodat.of.airlines.security.JwtService;
 import com.kodat.of.airlines.user.CustomUserDetails;
@@ -10,7 +11,6 @@ import com.kodat.of.airlines.user.dto.RegisterDto;
 import com.kodat.of.airlines.user.mapper.UserMapper;
 import com.kodat.of.airlines.user.repository.UserRepository;
 import com.kodat.of.airlines.user.service.UserService;
-import com.kodat.of.airlines.user.service.exception.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

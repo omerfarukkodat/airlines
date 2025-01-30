@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface FlightService {
 
-    FlightDto add(FlightDto flightDto);
-    List<FlightDto> getAll();
+    FlightDto add(FlightDto flightDto, Authentication connectedUser);
+
+    List<FlightDto> getAll(Authentication connectedUser);
 
     List<FlightDto> getByCity(Authentication connectedUser);
 
